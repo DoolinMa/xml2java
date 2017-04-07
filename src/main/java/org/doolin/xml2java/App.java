@@ -35,7 +35,7 @@ public class App
 	}
 	
     public static void main(String[] args ){
-    	
+    	System.out.println("Welcome to xml2java!");
     	Options options = new Options();
     	options.addOption("h", "help" ,false,"List help!");
     	options.addOption("s", "S", true, "Set the source dir!");
@@ -44,11 +44,18 @@ public class App
     	CommandLineParser parser = new PosixParser();
     	HelpFormatter hf = new HelpFormatter();
     	CommandLine cmd = null;
+    	
+    	if(args.length<4){
+    		hf.printHelp("xml2java help","",options,"Example:[ java -jar xml2java.jar -s ./sourceDir -d ./desDir ]");
+    		return;
+    	}
+    	
 		try {
 			cmd = parser.parse(options, args);
 		} catch (ParseException e) {
 			hf.printHelp("list help",options);
 			e.printStackTrace();
+			return;
 		}
     	
     	if(cmd.hasOption("h")){
@@ -59,13 +66,13 @@ public class App
     	
     	if(cmd.hasOption("s")){
     		app.sourceDir = cmd.getOptionValue("s");
-    		System.out.println("Source dir id "+cmd.getOptionValue("s"));
+    		System.out.println("Source dir is "+cmd.getOptionValue("s"));
     	}
     	if(cmd.hasOption("d")){
     		app.desDir = cmd.getOptionValue("d");
-    		System.out.println("Des dir id "+cmd.getOptionValue("d"));
+    		System.out.println("Des dir is "+cmd.getOptionValue("d"));
     	}
-        System.out.println(app.sourceDir+app.desDir);
         new FileAnalysis(app.sourceDir,app.desDir).ParserFile();
+        System.out.println("successed!");
     }
 }

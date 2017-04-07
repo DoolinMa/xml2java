@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<abc>
+<xml2java>
 	<package name="org.doolin">
-		<class name="test">
+		<class name="Test">
 			<attributes>
-				<attribute name="test" type="String" isEmpty="true"/>
+				<attribute name="id" type="int" />
+				<attribute name="name" type="String" />
+				<attribute name="time" type="java.util.Date" />
+			</attributes>
+		</class>
+		<class name="Test1">
+			<attributes>
+				<attribute name="money" type="float" />
 			</attributes>
 		</class>
 	</package>
-</abc>
+</xml2java>

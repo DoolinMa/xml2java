@@ -1,8 +1,6 @@
 package org.doolin.analysis;
 
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +11,6 @@ import org.dom4j.io.SAXReader;
 import org.doolin.model.Attribute;
 import org.doolin.model.JavaFileContent;
 import org.doolin.utils.JavaFileUtil;
-import org.doolin.utils.StringUtil;
 
 public class XMLAnalysis {
 

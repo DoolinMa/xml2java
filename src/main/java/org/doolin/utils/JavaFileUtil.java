@@ -1,11 +1,9 @@
 package org.doolin.utils;
 
 import java.io.File;
-import java.util.Date;
 
 import org.doolin.model.Attribute;
 import org.doolin.model.JavaFileContent;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import com.helger.jcodemodel.AbstractJType;
 import com.helger.jcodemodel.JCodeModel;
@@ -37,14 +35,12 @@ public class JavaFileUtil {
 		jcm.build(file);
 	}
 	
-	private static AbstractJType getJavaType(String str,JCodeModel jcm){
+	private static AbstractJType getJavaType(String str,JCodeModel jcm) throws ClassNotFoundException{
 		for(String s:DATATYPE){ 
 			if(s.equalsIgnoreCase(str.trim())) return jcm.parseType(s);
 		}
 		
-		if("Date".equalsIgnoreCase(str.trim())) return jcm.ref(Date.class);
-		
-		return jcm.parseType("undefined");
+		return jcm.ref(Class.forName(str));
 	}
 	
 }
