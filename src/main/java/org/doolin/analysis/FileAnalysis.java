@@ -20,12 +20,14 @@ public class FileAnalysis {
 				return name.endsWith(".xml");
 			}
 		};
+		XMLAnalysis xmlAnalysis = new XMLAnalysis();
 		if(file.isDirectory()){
-			XMLAnalysis xmlAnalysis = new XMLAnalysis();
 			for (File f : file.listFiles(filenameFilter)) 
 			{
 				xmlAnalysis.analysisXml2Model(f, desDir);
 			}
+		}else if (file.isFile() && file.getName().endsWith(".xml")) {
+				xmlAnalysis.analysisXml2Model(file, desDir);
 		}
 	}
 }

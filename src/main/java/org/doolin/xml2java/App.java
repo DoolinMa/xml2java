@@ -38,7 +38,7 @@ public class App
     	System.out.println("Welcome to xml2java!");
     	Options options = new Options();
     	options.addOption("h", "help" ,false,"List help!");
-    	options.addOption("s", "S", true, "Set the source dir!");
+    	options.addOption("s", "S", true, "Set the source!(It can be directory or xml files)");
     	options.addOption("d", "D", true, "Set the destination!");
     	
     	CommandLineParser parser = new PosixParser();
@@ -46,7 +46,7 @@ public class App
     	CommandLine cmd = null;
     	
     	if(args.length<4){
-    		hf.printHelp("xml2java help","",options,"Example:[ java -jar xml2java.jar -s ./sourceDir -d ./desDir ]");
+    		hf.printHelp("xml2java help","",options,"Example directory:[ java -jar xml2java.jar -s ./sourceDir -d ./desDir ]\nExample xml file:[ java -jar xml2java.jar -s ./test.xml -d ./desDir ]");
     		return;
     	}
     	

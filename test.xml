@@ -8,10 +8,5 @@
 				<attribute name="time" type="java.util.Date" />
 			</attributes>
 		</class>
-		<class name="Test1">
-			<attributes>
-				<attribute name="money" type="float" />
-			</attributes>
-		</class>
 	</package>
 </xml2java>
